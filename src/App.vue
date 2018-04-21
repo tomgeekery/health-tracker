@@ -1,59 +1,48 @@
 <template>
   <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <hello></hello>
-    </main>
+    <Fitness></Fitness>
+    <Food></Food>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Fitness from './components/Fitness'
+import Food from './components/Food'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Fitness,
+    Food
   }
 }
 </script>
 
 <style>
-body {
-  margin: 0;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
+  body {
+    color: #6d6d6d;
+  }
 
-main {
-  text-align: center;
-  margin-top: 40px;
-}
+  fieldset {
+    border: 0;
+    padding: 0.5rem 0;
+  }
 
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
-}
+  label {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
 
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
-}
+  input,
+  textarea {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
 </style>
