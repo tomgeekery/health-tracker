@@ -1,22 +1,54 @@
 <template>
   <div>
-    <div class="heading">Fitness</div>
     <div class="wrapper">
+      <p class="help-text">Keep track of your exercises here!</p>
+
       <fieldset>
         <label for="pushups">Push-ups</label>
-        <input type="number" name="pushups" id="pushups" step="10" v-model="pushups">
+
+        <input
+          type="number"
+          name="pushups"
+          id="pushups"
+          step="10"
+          v-model="fitness.pushups"
+        >
       </fieldset>
+
       <fieldset>
         <label for="situps">Sit-ups</label>
-        <input type="number" name="situps" id="situps" step="10" v-model="situps">
+
+        <input
+          type="number"
+          name="situps"
+          id="situps"
+          step="10"
+          v-model="fitness.situps"
+        >
       </fieldset>
+
       <fieldset>
-        <label for="pushups">Squats</label>
-        <input type="number" name="squats" id="squats" step="10" v-model="squats">
+        <label for="squats">Squats</label>
+
+        <input
+          type="number"
+          name="squats"
+          id="squats"
+          step="10"
+          v-model="fitness.squats"
+        >
       </fieldset>
+
       <fieldset>
-        <label for="pushups">Calf Raises</label>
-        <input type="number" name="calfRaises" id="calfRaises" step="10" v-model="calfRaises">
+        <label for="calfRaises">Calf Raises</label>
+
+        <input
+          type="number"
+          name="calfRaises"
+          id="calfRaises"
+          step="10"
+          v-model="fitness.calfRaises"
+        >
       </fieldset>
     </div>
   </div>
@@ -26,13 +58,12 @@
   export default {
     name: 'fitness',
 
-    data () {
-      return {
-        pushups: 0,
-        situps: 0,
-        squats: 0,
-        calfRaises: 0
-      }
-    }
+    props: ['fitness']
   }
 </script>
+
+<style scoped>
+  .help-text {
+    text-align: center;
+  }
+</style>

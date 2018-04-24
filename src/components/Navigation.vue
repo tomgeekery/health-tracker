@@ -1,12 +1,37 @@
 <template>
   <header>
-    <h1 class="header-heading">100 Days of Health</h1>
+    <h1 class="header-heading">
+      <a 
+        href="#"
+        @click.prevent="changePage('summary')"
+      >100 Days of Health</a>
+    </h1>
+
     <div class="options">
-      <button class="option icon-bicycle"></button>
-      <button class="option icon-food"></button>
+      <button
+        class="option icon-bicycle"
+        @click="changePage('fitness')"
+      ></button>
+
+      <button
+        class="option icon-food"
+        @click="changePage('food')"
+      ></button>
     </div>
   </header>
 </template>
+
+<script>
+  export default {
+    name: 'navigation',
+    props: ['page'],
+    methods: {
+      changePage (page) {
+        this.$emit('change-page', page)
+      }
+    }
+  }
+</script>
 
 <style scoped>
   .header-heading {

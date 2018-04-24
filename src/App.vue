@@ -1,9 +1,26 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <Navigation
+      :page="page"
+      @change-page="changePage"
+    ></Navigation>
+
     <div class="app-wrapper">
-      <Fitness></Fitness>
-      <Food></Food>
+      <Summary
+        :fitness="fitness"
+        :food="food"
+        v-if="page === 'summary'"
+      ></Summary>
+
+      <Fitness
+        :fitness="fitness"
+        v-if="page === 'fitness'"
+      ></Fitness>
+
+      <Food
+        :food="food"
+        v-if="page === 'food'"
+      ></Food>
     </div>
   </div>
 </template>
@@ -11,14 +28,37 @@
 <script>
 import Fitness from './components/Fitness'
 import Food from './components/Food'
-import Header from './components/Header'
+import Summary from './components/Summary'
+import Navigation from './components/Navigation'
 
 export default {
   name: 'app',
+
   components: {
     Fitness,
     Food,
-    Header
+    Navigation,
+    Summary
+  },
+
+  data () {
+    return {
+      fitness: {
+        pushups: 0,
+        situps: 0,
+        squats: 0,
+        calfRaises: 0
+      },
+
+      food: { log: '' },
+      page: 'summary'
+    }
+  },
+
+  methods: {
+    changePage (page) {
+      this.page = page
+    }
   }
 }
 </script>
@@ -70,15 +110,12 @@ export default {
     cursor: pointer;
   }
 
-  .heading {
-    background-color: #208aae;
+  a {
     color: #fff;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    text-align: center;
+    text-decoration: none;
   }
 
-  .wrapper {
+  .app-wrapper {
     padding: 1rem;
   }
 </style>
