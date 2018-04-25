@@ -1,9 +1,9 @@
 <template>
   <header>
     <h1 class="header-heading">
-      <a 
+      <a
         href="#"
-        @click.prevent="changePage('summary')"
+        @click.prevent="changePage('overview')"
       >100 Days of Health</a>
     </h1>
 
@@ -50,7 +50,7 @@
 
   .option {
     background-color: #083d77;
-    padding: 1rem;
+    padding: 2rem;
     text-align: center;
     width: 50%;
   }

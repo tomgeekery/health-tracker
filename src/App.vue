@@ -6,11 +6,11 @@
     ></Navigation>
 
     <div class="app-wrapper">
-      <Summary
+      <Overview
         :fitness="fitness"
         :food="food"
-        v-if="page === 'summary'"
-      ></Summary>
+        v-if="page === 'overview'"
+      ></Overview>
 
       <Fitness
         :fitness="fitness"
@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import Fitness from './components/Fitness'
 import Food from './components/Food'
-import Summary from './components/Summary'
+import Fitness from './components/Fitness'
+import Overview from './components/Overview'
 import Navigation from './components/Navigation'
 
 export default {
@@ -38,7 +38,7 @@ export default {
     Fitness,
     Food,
     Navigation,
-    Summary
+    Overview
   },
 
   data () {
@@ -49,9 +49,8 @@ export default {
         squats: 0,
         calfRaises: 0
       },
-
       food: { log: '' },
-      page: 'summary'
+      page: 'overview'
     }
   },
 
@@ -86,7 +85,7 @@ export default {
 
   label {
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
   input,
@@ -95,7 +94,8 @@ export default {
     border: 1px solid #ccc;
     border-radius: 0.25rem;
     color: #6d6d6d;
-    padding: 0.5rem;
+    font-size: 2rem;
+    padding: 2rem;
     width: 100%;
   }
 
@@ -116,6 +116,6 @@ export default {
   }
 
   .app-wrapper {
-    padding: 1rem;
+    padding: 2rem;
   }
 </style>
