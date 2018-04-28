@@ -54,6 +54,13 @@
             v-model="fitness.calfRaises"
           >
         </fieldset>
+
+        <fieldset>
+          <button 
+          @click="storeFitness"
+          class="save-button"
+          >Save</button>
+        </fieldset>
       </div>
     </div>
   </div>
@@ -62,7 +69,12 @@
 <script>
   export default {
     name: 'fitness',
-    props: ['fitness']
+    props: ['fitness'],
+    methods: {
+      storeFitness () {
+        localStorage.healthTrackerFitness = JSON.stringify(this.fitness)
+      }
+    }
   }
 </script>
 
@@ -85,5 +97,9 @@
   .number-field {
     text-align: center;
     width: 10rem;
+  }
+
+  .save-button {
+    margin-top: 2rem;
   }
 </style>

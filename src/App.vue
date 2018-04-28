@@ -61,8 +61,14 @@ export default {
   },
 
   mounted () {
+    // Check for existing food log.
     if (localStorage.getItem('healthTrackerFoodLog')) {
       this.food.log = localStorage.getItem('healthTrackerFoodLog')
+    }
+
+    // Check for existing fitness entries.
+    if (localStorage.getItem('healthTrackerFitness')) {
+      this.fitness = JSON.parse(localStorage.getItem('healthTrackerFitness'))
     }
   }
 }
@@ -84,9 +90,18 @@ export default {
     margin: 0;
   }
 
+  button {
+    background-color: #083d77;
+    color: #fff;
+    font-size: 2rem;
+    padding: 2rem;
+    width: 100%;
+  }
+
   fieldset {
     border: 0;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
+    width: 100%;
   }
 
   label {
