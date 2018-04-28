@@ -58,6 +58,12 @@ export default {
     changePage (page) {
       this.page = page
     }
+  },
+
+  mounted () {
+    if (localStorage.getItem('healthTrackerFoodLog')) {
+      this.food.log = localStorage.getItem('healthTrackerFoodLog')
+    }
   }
 }
 </script>
